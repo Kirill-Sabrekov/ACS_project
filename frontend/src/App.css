@@ -1,0 +1,174 @@
+:root {
+  --main-bg: #181c24;
+  --main-fg: #f3f3f3;
+  --accent: #4CAF50;
+  --accent-hover: #388e3c;
+  --card-bg: #232837;
+  --border: #333a4d;
+  --input-bg: #232837;
+  --input-fg: #f3f3f3;
+  --table-header: #232837;
+  --table-row: #22262f;
+  --table-row-alt: #1a1d24;
+}
+
+body, .App {
+  background: var(--main-bg);
+  color: var(--main-fg);
+  min-height: 100vh;
+}
+
+.App {
+  text-align: center;
+  padding: 20px;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #232837;
+  padding: 20px;
+  color: var(--main-fg);
+  margin-bottom: 24px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.controls {
+  background: var(--card-bg);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  padding: 16px 12px;
+  margin-bottom: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+}
+
+.controls select,
+.controls input[type="datetime-local"] {
+  padding: 8px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-size: 1rem;
+  background: var(--input-bg);
+  color: var(--input-fg);
+  transition: border 0.2s, background 0.2s;
+}
+
+.controls input[type="datetime-local"]:focus,
+.controls select:focus {
+  border: 1.5px solid var(--accent);
+  outline: none;
+  background: #232837;
+}
+
+.controls button {
+  padding: 8px 16px;
+  background-color: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-left: 10px;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 6px rgba(76,175,80,0.08);
+}
+
+.controls button:hover {
+  background-color: var(--accent-hover);
+  box-shadow: 0 4px 12px rgba(76,175,80,0.18);
+}
+
+.error {
+  color: #ff6b6b;
+  margin: 10px 0;
+}
+
+.loading {
+  margin: 20px 0;
+}
+
+.sensor-data {
+  margin-top: 20px;
+}
+
+.chart-container {
+  height: 400px;
+  margin: 20px 0;
+  padding: 20px;
+  background: linear-gradient(135deg, #232837 60%, #232837cc 100%);
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.25);
+  transition: background 0.3s;
+}
+
+/* Chart.js override for dark theme */
+.chartjs-render-monitor {
+  background: transparent !important;
+}
+
+/* Table styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background: var(--card-bg);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+}
+
+th, td {
+  border: 1px solid var(--border);
+  padding: 8px;
+  text-align: left;
+  color: var(--main-fg);
+}
+
+th {
+  background-color: var(--table-header);
+}
+
+tr:nth-child(even) {
+  background-color: var(--table-row-alt);
+}
+tr:nth-child(odd) {
+  background-color: var(--table-row);
+}
+
+@media (max-width: 600px) {
+  .controls {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+  .chart-container {
+    padding: 5px;
+  }
+}
